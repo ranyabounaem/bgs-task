@@ -6698,7 +6698,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 8
-      m_TileSpriteIndex: 8
+      m_TileSpriteIndex: 13
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -6748,7 +6748,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 7
-      m_TileSpriteIndex: 7
+      m_TileSpriteIndex: 8
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -6758,7 +6758,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 3
-      m_TileSpriteIndex: 3
+      m_TileSpriteIndex: 7
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -6798,7 +6798,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 0
-      m_TileSpriteIndex: 0
+      m_TileSpriteIndex: 3
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -6852,15 +6852,17 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 312f9f1ff1551df43a2e33166827fef4, type: 2}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: 08cae6e2f0416d349a17bfcaae407be5, type: 2}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   m_TileSpriteArray:
-  - m_RefCount: 1
-    m_Data: {fileID: -1114498072, guid: 072b6a6c505fab146a50484662bd26aa, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 1
     m_Data: {fileID: 666271434, guid: 072b6a6c505fab146a50484662bd26aa, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 1330657600, guid: 072b6a6c505fab146a50484662bd26aa, type: 3}
   - m_RefCount: 1
-    m_Data: {fileID: -787379319, guid: 072b6a6c505fab146a50484662bd26aa, type: 3}
+    m_Data: {fileID: -1114498072, guid: 072b6a6c505fab146a50484662bd26aa, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: -489207561, guid: 072b6a6c505fab146a50484662bd26aa, type: 3}
   - m_RefCount: 1
@@ -6868,9 +6870,9 @@ Tilemap:
   - m_RefCount: 1
     m_Data: {fileID: 1509289593, guid: 072b6a6c505fab146a50484662bd26aa, type: 3}
   - m_RefCount: 1
-    m_Data: {fileID: -1971891956, guid: 072b6a6c505fab146a50484662bd26aa, type: 3}
+    m_Data: {fileID: -787379319, guid: 072b6a6c505fab146a50484662bd26aa, type: 3}
   - m_RefCount: 1
-    m_Data: {fileID: 268458155, guid: 072b6a6c505fab146a50484662bd26aa, type: 3}
+    m_Data: {fileID: -1971891956, guid: 072b6a6c505fab146a50484662bd26aa, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 95097772, guid: 072b6a6c505fab146a50484662bd26aa, type: 3}
   - m_RefCount: 1
@@ -6879,6 +6881,8 @@ Tilemap:
     m_Data: {fileID: -1657124417, guid: 072b6a6c505fab146a50484662bd26aa, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: -1881427729, guid: 072b6a6c505fab146a50484662bd26aa, type: 3}
+  - m_RefCount: 1
+    m_Data: {fileID: 268458155, guid: 072b6a6c505fab146a50484662bd26aa, type: 3}
   m_TileMatrixArray:
   - m_RefCount: 13
     m_Data:
@@ -6981,6 +6985,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1883605489}
   - component: {fileID: 1883605490}
+  - component: {fileID: 1883605491}
+  - component: {fileID: 1883605493}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -7057,3 +7063,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1883605491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1883605488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 457eb125fb0b8a64bb6c88d1e73a4639, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _movementSpeed: 20
+--- !u!50 &1883605493
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1883605488}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 10
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
