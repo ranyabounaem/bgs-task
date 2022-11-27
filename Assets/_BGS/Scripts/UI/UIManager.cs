@@ -1,18 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using BGS.Items;
 
-public class UIManager : MonoBehaviour
+namespace BGS.UI
 {
-    // Start is called before the first frame update
-    void Start()
+    public class UIManager : MonoBehaviour
     {
-        
-    }
+        [SerializeField]
+        InventoryUI _inventoryUI;
+        [SerializeField]
+        Inventory _playerInventory;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        void Awake()
+        {
+            _inventoryUI.Setup(_playerInventory);
+        }
     }
 }
+

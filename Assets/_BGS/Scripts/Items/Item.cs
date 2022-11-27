@@ -6,6 +6,7 @@ namespace BGS.Items
     public enum ItemType { Top, Bottom }
     public abstract class Item : ScriptableObject
     {
+        public Sprite Sprite => _sprite;
         [SerializeField]
         protected Sprite _sprite;
         [SerializeField]

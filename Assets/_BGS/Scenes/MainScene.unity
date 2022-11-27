@@ -7101,30 +7101,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1739749235}
     m_Modifications:
-    - target: {fileID: 1833396098364887670, guid: 54acb69a40b3aed4bb83d94abda956f5, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1833396098364887670, guid: 54acb69a40b3aed4bb83d94abda956f5, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1833396098364887670, guid: 54acb69a40b3aed4bb83d94abda956f5, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1833396098364887670, guid: 54acb69a40b3aed4bb83d94abda956f5, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1833396098364887670, guid: 54acb69a40b3aed4bb83d94abda956f5, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1833396098364887670, guid: 54acb69a40b3aed4bb83d94abda956f5, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1833396099626698584, guid: 54acb69a40b3aed4bb83d94abda956f5, type: 3}
       propertyPath: m_Name
       value: Inventory
@@ -7220,6 +7196,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1833396099626698587, guid: 54acb69a40b3aed4bb83d94abda956f5, type: 3}
   m_PrefabInstance: {fileID: 964066546}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &964066548 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3167748013502653142, guid: 54acb69a40b3aed4bb83d94abda956f5, type: 3}
+  m_PrefabInstance: {fileID: 964066546}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 052a0d152ce08584f8f274123db37d11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1089587097
 GameObject:
   m_ObjectHideFlags: 0
@@ -7362,6 +7349,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef16cf8e72207f045b3a6a4759f3ceee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _inventoryUI: {fileID: 964066548}
+  _playerInventory: {fileID: 1883605494}
 --- !u!4 &1467331761
 Transform:
   m_ObjectHideFlags: 0
@@ -7615,9 +7604,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cd115c412d6d4143a05df82c2928bb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  items:
+  _items:
   - {fileID: 11400000, guid: 4392bc55529faea43860c397b1b71e33, type: 2}
   - {fileID: 11400000, guid: a8a897fed34d2184aa96db02b805af62, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!61 &1883605495
 BoxCollider2D:
   m_ObjectHideFlags: 0
