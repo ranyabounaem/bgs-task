@@ -6,17 +6,15 @@ namespace BGS.Player
 {
     public class PlayerMovement : MonoBehaviour
     {
-        
-        private Rigidbody2D _rb;
-
         [Header("Movement")]
-        [SerializeField] int _movementSpeed;
-        bool _upPressed = false;
-        bool _leftPressed = false;
-        bool _downPressed = false;
-        bool _rightPressed = false;
+        [SerializeField] int _movementSpeed = 20;
 
-        // Preferably a setup method and called my game manager
+        Vector2 _movementInput = Vector2.zero;
+
+        [Header("References")]
+        Rigidbody2D _rb;
+
+
         private void Awake()
         {
             _rb = GetComponent<Rigidbody2D>();
@@ -26,56 +24,30 @@ namespace BGS.Player
         {
             CheckForInput();
         }
+        private void FixedUpdate()
+        {
+            _rb.AddForce(_movementInput * _movementSpeed);
+            ResetInput();
+        }
 
         void CheckForInput()
         {
             if (Input.GetKey(KeyCode.W))
-            {
-                _upPressed = true;
-            }
+                _movementInput.y = 1;
             if (Input.GetKey(KeyCode.A))
-            {
-                _leftPressed = true;
-            }
+                _movementInput.x = -1;
             if (Input.GetKey(KeyCode.S))
-            {
-                _downPressed = true;
-            }
+                _movementInput.y = -1;
             if (Input.GetKey(KeyCode.D))
-            {
-                _rightPressed = true;
-            }
+                _movementInput.x = 1;
 
         }
 
         void ResetInput()
         {
-            _upPressed = false;
-            _leftPressed = false;
-            _downPressed = false;
-            _rightPressed = false;
+            _movementInput = Vector2.zero;
         }
 
-        private void FixedUpdate()
-        {
-            if (_upPressed)
-            {
-                _rb.AddForce(_movementSpeed * Vector2.up);
-            }
-            if (_leftPressed)
-            {
-                _rb.AddForce(_movementSpeed * Vector2.left);
-            }
-            if (_downPressed)
-            {
-                _rb.AddForce(_movementSpeed * Vector2.down);
-            }
-            if (_rightPressed)
-            {
-                _rb.AddForce(_movementSpeed * Vector2.right);
-            }
-            ResetInput();
-        }
     }
 }
 
