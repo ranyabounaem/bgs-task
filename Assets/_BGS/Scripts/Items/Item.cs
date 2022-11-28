@@ -18,6 +18,8 @@ namespace BGS.Items
         [SerializeField]
         protected ItemType _type;
 
+        public List<AnimationClip> Clips = new List<AnimationClip>(8);
+
     }
 }
 

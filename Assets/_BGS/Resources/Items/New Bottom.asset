@@ -16,3 +16,12 @@ MonoBehaviour:
   _name: 
   _cost: 100
   _type: 1
+  Clips:
+  - {fileID: 7400000, guid: 5a155f9565470ae48905bf489984a1b4, type: 2}
+  - {fileID: 7400000, guid: a2aa9a2b4157b3b4eb3725c8b1d05f89, type: 2}
+  - {fileID: 7400000, guid: 6423d38764505f44cab6532dba4cd97e, type: 2}
+  - {fileID: 7400000, guid: 93bb4f090a2412b478974342b1183d9d, type: 2}
+  - {fileID: 7400000, guid: 5fa45f168ae13fa48bd72531afa921cb, type: 2}
+  - {fileID: 7400000, guid: 6481da961dff7f442a2a405e5c85665c, type: 2}
+  - {fileID: 7400000, guid: 40b97822c632f164292eebd278dc8b78, type: 2}
+  - {fileID: 7400000, guid: 6b58abbc497ced24a8356b1864206bc8, type: 2}

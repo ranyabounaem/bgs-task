@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using BGS.Items;
 
 namespace BGS.Player
 {
@@ -14,12 +15,14 @@ namespace BGS.Player
         [Header("References")]
         Rigidbody2D _rb;
         Animator _anim;
+        Equipment _equipment;
 
 
         private void Awake()
         {
             _rb = GetComponent<Rigidbody2D>();
             _anim = GetComponent<Animator>();
+            _equipment = GetComponent<Equipment>();
         }
 
         private void Update()
@@ -32,8 +35,7 @@ namespace BGS.Player
             _rb.AddForce(_movementInput * _movementSpeed);
             if (_movementInput.magnitude > 0)
             {
-                _anim.SetFloat("x", _movementInput.x);
-                _anim.SetFloat("y", _movementInput.y);
+                
             }
             ResetInput();
         }
@@ -55,13 +57,18 @@ namespace BGS.Player
         {
             if (_movementInput.magnitude > 0)
             {
+                _anim.SetFloat("x", _movementInput.x);
+                _anim.SetFloat("y", _movementInput.y);
                 _anim.SetLayerWeight(_anim.GetLayerIndex("Idle"), 0);
                 _anim.SetLayerWeight(_anim.GetLayerIndex("Walk"), 1);
+                _equipment.UpdatePlayerDirection(_movementInput);
+                _equipment.SetAnimatorLayer("Walk");
             }
             else
             {
                 _anim.SetLayerWeight(_anim.GetLayerIndex("Idle"), 1);
                 _anim.SetLayerWeight(_anim.GetLayerIndex("Walk"), 0);
+                _equipment.SetAnimatorLayer("Idle");
             }
         }
 
