@@ -17,7 +17,7 @@ namespace BGS.ShopSystem
         }
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            _UIManager.OpenShop(_shop);
+            _UIManager.OpenShopDialogue(_shop);
         }
 
         private void OnTriggerExit2D(Collider2D collision)

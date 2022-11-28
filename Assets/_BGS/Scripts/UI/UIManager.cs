@@ -14,6 +14,8 @@ namespace BGS.UI
         EquipmentUI _equipmentUI;
         [SerializeField]
         ShopUI _shopUI;
+        [SerializeField]
+        ShopDialogue _shopDialogue;
 
         Container _playerInventory;
         Container _activeShop;
@@ -27,18 +29,30 @@ namespace BGS.UI
         {
             _playerInventory = playerInventory;
             _inventoryUI.Setup(this, playerInventory, playerEquipment);
-            _equipmentUI.Setup(playerEquipment); 
+            _equipmentUI.Setup(playerEquipment);
+            _shopDialogue.Setup(this);
         }
 
-        public void OpenShop(Container activeShop)
+        public void OpenShopDialogue(Container activeShop)
         {
             _activeShop = activeShop;
+            _shopDialogue.gameObject.SetActive(true);
+            _shopDialogue.StartDialogue();
+
+
+        }
+
+        public void OpenShop ()
+        {
+            _shopDialogue.ResetDialogue();
+            _shopDialogue.gameObject.SetActive(false);
             _shopUI.transform.parent.gameObject.SetActive(true);
-            _shopUI.Setup(_playerInventory, activeShop);
+            _shopUI.Setup(_playerInventory, _activeShop);
         }
 
         public void CloseShop()
         {
+            _shopDialogue.gameObject.SetActive(false);
             _activeShop = null;
             _shopUI.transform.parent.gameObject.SetActive(false);
         }
