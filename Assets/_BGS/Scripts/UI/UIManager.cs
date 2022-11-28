@@ -33,14 +33,14 @@ namespace BGS.UI
         public void OpenShop(Container activeShop)
         {
             _activeShop = activeShop;
-            _shopUI.gameObject.SetActive(true);
+            _shopUI.transform.parent.gameObject.SetActive(true);
             _shopUI.Setup(_playerInventory, activeShop);
         }
 
         public void CloseShop()
         {
             _activeShop = null;
-            _shopUI.gameObject.SetActive(false);
+            _shopUI.transform.parent.gameObject.SetActive(false);
         }
     }
 }

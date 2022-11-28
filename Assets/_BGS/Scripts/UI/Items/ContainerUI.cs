@@ -17,14 +17,23 @@ namespace BGS.UI
         GameObject _slotUI;
         [SerializeField]
         Text _text;
+        private void OnDisable()
+        {
+            _container.OnContainerUpdated -= RefreshContainer;
+        }
 
         public virtual void Setup(Container container)
         {
             _container = container;
             _container.OnContainerUpdated += RefreshContainer;
             var capacity = _container.GetCapacity();
-            _slots = new List<GameObject>(capacity);
-            CreateSlots();
+            
+            if (_slots.Count == 0)
+            {
+                _slots = new List<GameObject>(capacity);
+                CreateSlots();
+            }
+                 
             RefreshContainer();
         }
 
