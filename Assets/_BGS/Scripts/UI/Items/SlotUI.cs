@@ -2,13 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using BGS.Items;
+using UnityEngine.EventSystems;
 
 namespace BGS.UI
 {
-    public class SlotUI : MonoBehaviour
+    public delegate void SlotClickHandler(int index);
+    public class SlotUI : MonoBehaviour, IPointerClickHandler
     {
-        public Image itemSprite;
+        public event SlotClickHandler OnSlotClicked;
+        [SerializeField]
+        Image _image;
+        public int Index { get; set; }
+
+        public void UpdateImageSprite(Sprite sprite)
+        {
+            _image.sprite = sprite;
+        }
+
+        public void OnPointerClick(PointerEventData eventData)
+        {
+            OnSlotClicked.Invoke(Index);
+        }
     }
 }
 

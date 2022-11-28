@@ -5,44 +5,44 @@ using BGS.Items;
 
 namespace BGS.UI
 {
-    public class InventoryUI : MonoBehaviour
+    public class InventoryUI : ContainerUI
     {
-        [SerializeField]
-        List<GameObject> _slots;
-        Inventory _playerInventory;
+        Equipment _playerEquipment;
+        UIManager _UIManager;
 
-        [Header("References")]
-        [SerializeField]
-        GameObject _slotUI;
-
-        public void Setup(Inventory inventory)
+        public void Setup(UIManager UIManager, Container inventory, Equipment equipment)
         {
-            _playerInventory = inventory;
-            _playerInventory.OnInventoryUpdated += RefreshInventory;
-            var capacity = _playerInventory.GetCapacity();
-            _slots = new List<GameObject>(capacity);
-            CreateSlots();
-            RefreshInventory();
+            Setup(inventory);
+            _playerEquipment = equipment;
+            _UIManager = UIManager;
         }
 
-        void CreateSlots()
+        protected override void HandleSlotClicked(int index)
         {
-            for (var i = 0; i < _slots.Capacity; i++)
+            if (index < _container.Items.Count)
             {
-                var __slot = Instantiate(_slotUI, transform);
-                _slots.Add(__slot);
-            }
-        }
-
-        void RefreshInventory()
-        {
-            for (int i = 0; i < _playerInventory.Items.Count; i++)
-            {
-                if (_slots[i].TryGetComponent(out SlotUI __slotUI))
+                var __activeShop = _UIManager.GetActiveShop();
+                if (__activeShop != null)
                 {
-                    __slotUI.itemSprite.sprite = _playerInventory.Items[i]?.Sprite;
+                    var __clickedItem = _container.Items[index];
+                    var __cost = __clickedItem.Cost;
+                    if (__activeShop.Currency >= __cost)
+                    {
+                        __activeShop.UseCurrency(__cost);
+                        __activeShop.AddItem(__clickedItem);
+                        _container.AddCurrency(__cost);
+                        _container.RemoveItem(index);
+                    }
                 }
+                else
+                {
+                    _playerEquipment.Equip(_container.Items[index]);
+                }
+
+                
             }
+           
+           
         }
     }
 }

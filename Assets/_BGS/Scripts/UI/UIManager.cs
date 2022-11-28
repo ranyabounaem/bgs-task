@@ -5,16 +5,42 @@ using BGS.Items;
 
 namespace BGS.UI
 {
+    public enum UIState { Normal, Shop }
     public class UIManager : MonoBehaviour
     {
         [SerializeField]
         InventoryUI _inventoryUI;
         [SerializeField]
-        Inventory _playerInventory;
+        EquipmentUI _equipmentUI;
+        [SerializeField]
+        ShopUI _shopUI;
 
-        void Awake()
+        Container _playerInventory;
+        Container _activeShop;
+
+        public Container GetActiveShop()
         {
-            _inventoryUI.Setup(_playerInventory);
+            return _activeShop;
+        }
+
+        public void Setup(Equipment playerEquipment, Container playerInventory)
+        {
+            _playerInventory = playerInventory;
+            _inventoryUI.Setup(this, playerInventory, playerEquipment);
+            _equipmentUI.Setup(playerEquipment); 
+        }
+
+        public void OpenShop(Container activeShop)
+        {
+            _activeShop = activeShop;
+            _shopUI.gameObject.SetActive(true);
+            _shopUI.Setup(_playerInventory, activeShop);
+        }
+
+        public void CloseShop()
+        {
+            _activeShop = null;
+            _shopUI.gameObject.SetActive(false);
         }
     }
 }

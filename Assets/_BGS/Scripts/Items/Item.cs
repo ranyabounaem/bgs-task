@@ -7,6 +7,8 @@ namespace BGS.Items
     public abstract class Item : ScriptableObject
     {
         public Sprite Sprite => _sprite;
+        public ItemType Type => _type;
+        public int Cost => _cost;
         [SerializeField]
         protected Sprite _sprite;
         [SerializeField]
