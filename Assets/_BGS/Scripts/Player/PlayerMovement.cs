@@ -13,20 +13,28 @@ namespace BGS.Player
 
         [Header("References")]
         Rigidbody2D _rb;
+        Animator _anim;
 
 
         private void Awake()
         {
             _rb = GetComponent<Rigidbody2D>();
+            _anim = GetComponent<Animator>();
         }
 
         private void Update()
         {
             CheckForInput();
+            UpdateAnimLayers();
         }
         private void FixedUpdate()
-        {
+        {   
             _rb.AddForce(_movementInput * _movementSpeed);
+            if (_movementInput.magnitude > 0)
+            {
+                _anim.SetFloat("x", _movementInput.x);
+                _anim.SetFloat("y", _movementInput.y);
+            }
             ResetInput();
         }
 
@@ -43,9 +51,24 @@ namespace BGS.Player
 
         }
 
+        void UpdateAnimLayers()
+        {
+            if (_movementInput.magnitude > 0)
+            {
+                _anim.SetLayerWeight(_anim.GetLayerIndex("Idle"), 0);
+                _anim.SetLayerWeight(_anim.GetLayerIndex("Walk"), 1);
+            }
+            else
+            {
+                _anim.SetLayerWeight(_anim.GetLayerIndex("Idle"), 1);
+                _anim.SetLayerWeight(_anim.GetLayerIndex("Walk"), 0);
+            }
+        }
+
         void ResetInput()
         {
             _movementInput = Vector2.zero;
+
         }
 
     }
