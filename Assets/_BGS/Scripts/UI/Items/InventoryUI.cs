@@ -30,6 +30,7 @@ namespace BGS.UI
                     {
                         __activeShop.UseCurrency(__cost);
                         __activeShop.AddItem(__clickedItem);
+                        AudioManager.instance.Play("Sell_SFX");
                         _container.AddCurrency(__cost);
                         _container.RemoveItem(index);
                     }

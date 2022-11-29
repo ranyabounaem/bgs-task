@@ -295,11 +295,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dialogueList:
   - Texts:
-    - Hello there! We are currently closed... but we can trade through the window...
-      FAST!
-    - Your clothes look amazing. I can buy them off you!
+    - Hello there! I haven't seen you for a year!
+    - It looks like you have grown and matured over the past year!
+    - We are currently closed... but you are an old friend, I will give you what
+      you want through the window.
   - Texts:
-    - Hi again! Do you have more clothes to sell? I can also buy some!
+    - Hi again! Would you like to trade?
   _textField: {fileID: 777160446928896002}
   _nextButton: {fileID: 777160447854563187}
   _openShopButton: {fileID: 777160448175030235}

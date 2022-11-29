@@ -83,6 +83,7 @@ namespace BGS.Items
             }
             _inventory.RemoveItem(item);
             OnEquipmentChanged?.Invoke();
+            AudioManager.instance.Play("Equip_SFX");
 
         }
 
@@ -131,6 +132,7 @@ namespace BGS.Items
                 _characterTop.color = __color;
             }
             OnEquipmentChanged?.Invoke();
+            AudioManager.instance.Play("DeEquip_SFX");
         }
 
         public void DeEquip(int index)
@@ -180,6 +182,7 @@ namespace BGS.Items
 
             }
             OnEquipmentChanged?.Invoke();
+            AudioManager.instance.Play("DeEquip_SFX");
         }
 
         public Sprite GetEquipmentSprite(ItemType slotType)

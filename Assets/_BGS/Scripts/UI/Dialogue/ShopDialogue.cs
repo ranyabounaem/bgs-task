@@ -38,8 +38,20 @@ namespace BGS.UI
         public void Setup(UIManager uiManager)
         {
             _uiManager = uiManager;
-            _openShopButton.onClick.AddListener(() => _uiManager.OpenShop());
-            _nextButton.onClick.AddListener(() => ProceedDialogue());
+            _openShopButton.onClick.AddListener(() => HandleShopButton());
+            _nextButton.onClick.AddListener(() => HandleProceedButton());
+        }
+
+        void HandleShopButton()
+        {
+            AudioManager.instance.Play("Click_SFX");
+            _uiManager.OpenShop();
+        }
+
+        void HandleProceedButton()
+        {
+            AudioManager.instance.Play("Click_SFX");
+            ProceedDialogue();
         }
 
         public void StartDialogue()

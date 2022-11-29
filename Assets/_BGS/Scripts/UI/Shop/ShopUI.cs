@@ -27,6 +27,7 @@ namespace BGS.UI
                 {
                     _playerInventory.UseCurrency(__cost);
                     _playerInventory.AddItem(__clickedItem);
+                    AudioManager.instance.Play("Purchase_SFX");
                     _container.AddCurrency(__cost);
                     _container.RemoveItem(index);
 
