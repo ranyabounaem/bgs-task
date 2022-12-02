@@ -28,7 +28,6 @@ The main problem was to think of a way to split the character into different par
 I couldn't find sprites for what I needed exactly so I created my own which took some extra time since I'm not a pixel artist (yet :D) 
 
 3. Game Scene<br />
-Started by laying out basic initial scene
 
 4. Movement<br />
 Very basic input detection for movement and movement mechanics
