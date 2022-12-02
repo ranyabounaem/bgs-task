@@ -1,4 +1,4 @@
-# bgs-task
+# BGS Task Submission
 Attempt on Blue Gravity's interview task.
  
 ## System Functionality
