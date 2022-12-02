@@ -2,20 +2,20 @@
 Attempt on Blue Gravity's interview task.
  
 ## System Functionality
-###Movement
+### Movement
 W A S D keys are used for movement
 
-###Shop
+### Shop
 Approach shop by standing right before the building door
 
-###Equip
+### Equip
 Left click any item in the inventory when shop is inactive
 
-###De-equip
+### De-equip
 Left click either of the two equipment slots
 
-###Selling
+### Selling
 Left click an item in the inventory when shop is active
 
-###Buying
+### Buying
 Left click an item in the shop
