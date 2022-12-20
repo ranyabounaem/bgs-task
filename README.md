@@ -1,5 +1,5 @@
-# BGS Task Submission
-Attempt on Blue Gravity's interview task.
+# Mini-project (Clothes Shop)
+Mini-project featuring character movement, clothes shop, equipment and inventory systems.
  
 ## System Functionality
 ### Movement
